@@ -11,26 +11,39 @@ namespace Giraffe
     {
         static void Main(string[] args)
         {
-            string color, pluralNoun, celebrity;
+            string secretWord = "Giraffe";
+            string guess = "";
+            int guessCount = 0;
+            int guessLimit = 3;
+            bool outOfGuesses = false;
 
-            Console.Write("Enter a color: ");
-            color = Console.ReadLine();
+            while (guess != secretWord && !outOfGuesses)
+            {
 
-            Console.Write("Enter a plural noun: ");
-            pluralNoun = Console.ReadLine();
+                if (guessCount < guessLimit)
+                {
+                    Console.Write("Enter a guess: ");
+                    guess = Console.ReadLine();
+                    guessCount++;
+                } else
+                {
+                    outOfGuesses = true;
+                }
+                
+               
+            }
+            if (outOfGuesses)
+            {
+                Console.Write("You lose!");
+            } else
+            {
+                Console.Write("You win");
+            }
+            
 
-            Console.Write("Enter a celebrity: ");
-            celebrity = Console.ReadLine();
-
-
-            Console.WriteLine("Roses are " + color);
-            Console.WriteLine( pluralNoun + " are red");
-            Console.WriteLine("I love " + celebrity);
-
-
-            Console.ReadLine();
-           
+                Console.ReadLine();
         }
+
     }
 
 }
